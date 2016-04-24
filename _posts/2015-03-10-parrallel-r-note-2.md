@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Parrallel R Note 2"
+title: "Parrallel R Note 2 : SNOW"
 description: ""
 category: 
 tags: []
@@ -19,7 +19,7 @@ tags: []
 
 <meta name="date" content="2015-03-10" />
 
-<title>Parallel R note 2: SNOW</title>
+
 
 
 
