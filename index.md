@@ -15,13 +15,14 @@ In `Archieve` menu I post some of the notes of my learning and working with data
     
     Content : anything about data scicence 
     
-    including :
-      statistics 
-      python
+    Including :
+      Statistics 
+      Python
       R
       Matlab
-      data analysis
-      machine learning
+      Data analysis
+      Machine learning
+      Big Data
 
 The blog should reference these categories whenever needed.
     
