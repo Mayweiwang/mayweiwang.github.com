@@ -58,7 +58,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 
 
 <div id="header">
-<h1 class="title">Parallel R note 2: SNOW</h1>
+
 <h4 class="date"><em>2015-03-10</em></h4>
 </div>
 
