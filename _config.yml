@@ -8,7 +8,7 @@ highlighter: pygments
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : May's Blog ![_config.yml](/assets/mylogo.png)
+title : May's Blog 
 tagline: Love Sunshine and Smile
 author :
   name : Wei Wang
