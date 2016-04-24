@@ -64,7 +64,7 @@ JB :
   #   http://s3.amazonaws.com/yoursite/themes/watermelon
   #   /assets
   #
-  ASSET_PATH : [BASE_PATH]/assets/themes/[THEME-NAME]
+  ASSET_PATH : [BASE_PATH]/assets/themes/the-program
 
   THEME-NAME : the-program
 
