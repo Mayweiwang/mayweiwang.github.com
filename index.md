@@ -5,9 +5,8 @@ tagline: Supporting tagline
 ---
 {% include JB/setup %}
 
-Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.html)
+I am a data scientist in the field of High-Frequency surface wave radar remote sensing. More info. about me are provided on [Linkedin](https://ca.linkedin.com/in/wei-may-wang-96364315)
 
-Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
 
 ## About this blog
 
