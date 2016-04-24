@@ -2,7 +2,7 @@
 layout: post
 title: "Create PDF pages for Python Generated maps"
 description: ""
-category: 
+category: "Python"
 tags: []
 ---
 {% include JB/setup %}
