@@ -13,13 +13,13 @@ I am a data scientist in the field of High-Frequency surface wave radar remote s
 In `Archieve` menu I post some of the notes of my learning and working with data:
     
     Content : anything about data scicence 
-      Statistics 
-      Python
-      R
-      Matlab
-      Data analysis
-      Machine learning
-      Big Data
+      - Statistics 
+      - Python
+      - R 
+      - Matlab
+      - Data analysis
+      - Machine learning
+      - Big Data
 
 The blog should reference these categories whenever needed.
     
