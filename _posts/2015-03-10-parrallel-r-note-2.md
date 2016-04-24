@@ -1,6 +1,5 @@
 ---
 layout: post
-title: "Parrallel R Note 2 : SNOW"
 description: ""
 category: 
 tags: []
