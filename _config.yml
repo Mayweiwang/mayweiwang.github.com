@@ -13,9 +13,9 @@ tagline: Love Sunshine and Smile
 author :
   name : Wei Wang
   email : mayweiwang@gmail.com
-  github : username
-  twitter : username
-  feedburner : feedname
+  github : https://github.com/Mayweiwang
+  twitter : https://twitter.com/mayweiwang
+  
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
