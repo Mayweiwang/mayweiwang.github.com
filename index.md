@@ -5,7 +5,7 @@ tagline: Supporting tagline
 ---
 {% include JB/setup %}
 
-![_config.yml](/mylogo.jpg)
+![my logo](/assets/mylogo.jpg)
 I am a data scientist in the field of High-Frequency surface wave radar remote sensing. More info. about me are provided on [Linkedin](https://ca.linkedin.com/in/wei-may-wang-96364315)
 
 
