@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hello World!
+title: Love data and hope to explore the world of data.
 tagline: Supporting tagline
 ---
 {% include JB/setup %}
@@ -9,19 +9,21 @@ Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.ht
 
 Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
 
-## Update Author Attributes
+## About this blog
 
-In `_config.yml` remember to specify your own data:
+In `Archieve` menu I post some of the notes of my learning and working with data:
     
-    title : My Blog =)
+    Content : anything about data scicence 
     
-    author :
-      name : Name Lastname
-      email : blah@email.test
-      github : username
-      twitter : username
+    including :
+      statistics 
+      python
+      R
+      Matlab
+      data analysis
+      machine learning
 
-The theme should reference these variables whenever needed.
+The blog should reference these categories whenever needed.
     
 ## Sample Posts
 
@@ -38,9 +40,6 @@ Here's a sample "posts list".
   {% endfor %}
 </ul>
 
-## To-Do
 
-This theme is still unfinished. If you'd like to be added as a contributor, [please fork](http://github.com/plusjade/jekyll-bootstrap)!
-We need to clean up the themes, make theme usage guides with theme-specific markup examples.
 
 
