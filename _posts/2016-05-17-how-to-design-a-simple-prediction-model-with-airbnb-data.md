@@ -2,11 +2,10 @@
 layout: post
 title: "How to design a simple prediction model with Airbnb data"
 description: ""
-category: 
+category: python
 tags: []
 ---
 {% include JB/setup %}
-
 
 <head>
 
@@ -1373,7 +1372,7 @@ div.cell.edit_mode{border-radius:4px;border:thin #008000 solid}
 div.cell{width:100%;padding:5px 5px 5px 0;margin:0;outline:none}
 div.prompt{min-width:11ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}
 @media (max-width:480px){div.prompt{text-align:left}}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}
-div.input_area{width:800px;border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;line-height:1.21429em}
+div.input_area{width:600px;padding: 4px;border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;line-height:1.21429em}
 div.prompt:empty{padding-top:0;padding-bottom:0}
 div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}
 @media (max-width:480px){div.input{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.input_prompt{color:#000080;border-top:1px solid transparent}
@@ -1412,7 +1411,7 @@ div.output_collapsed{margin:0;padding:0;display:-webkit-box;-webkit-box-orient:v
 div.out_prompt_overlay{height:100%;padding:0 .4em;position:absolute;border-radius:4px}
 div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000;-moz-box-shadow:inset 0 0 1px #000;box-shadow:inset 0 0 1px #000;background:rgba(240,240,240,0.5)}
 div.output_prompt{color:#8b0000}
-div.output_area{padding:0;width: 800px;page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.output_area .MathJax_Display{text-align:left !important}
+div.output_area{padding:4px;width: 600px;page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.output_area .MathJax_Display{text-align:left !important}
 div.output_area .rendered_html table{margin-left:0;margin-right:0}
 div.output_area .rendered_html img{margin-left:0;margin-right:0}
 .output{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}
@@ -1468,7 +1467,7 @@ p.p-space{margin-bottom:10px}
 .rendered_html *+p{margin-top:1em}
 .rendered_html img{display:block;margin-left:auto;margin-right:auto}
 .rendered_html *+img{margin-top:1em}
-div.text_cell{width: 800px;padding:5px 5px 5px 0;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}
+div.text_cell{width: 600px;padding:5px 5px 5px 0;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}
 @media (max-width:480px){div.text_cell>div.prompt{display:none}}div.text_cell_render{font-family:monospace;outline:none;resize:none;width:600px;border-style:none;padding:.5em .5em .5em .4em;color:#000}
 a.anchor-link:link{text-decoration:none;padding:0 20px;visibility:hidden}
 h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible}
@@ -1765,7 +1764,8 @@ In&nbsp;[71]:
 <span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;Kaggle data comp 1/input/test_users.csv&#39;</span><span class="p">)</span>
 <span class="n">train</span><span class="p">[</span><span class="s">&#39;Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Train&#39;</span> <span class="c">#Create a flag for Train and Test Data set</span>
 <span class="n">test</span><span class="p">[</span><span class="s">&#39;Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Test&#39;</span>
-<span class="n">fullData</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train</span><span class="p">,</span><span class="n">test</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c"># Combined both Train and Test Data set</span>
+<span class="c"># Combined both Train and Test Data set</span>
+<span class="n">fullData</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train</span><span class="p">,</span><span class="n">test</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
 </pre></div>
 
 </div>
@@ -1812,9 +1812,9 @@ In&nbsp;[73]:
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="c"># 1.3 View the column names / summary of the dataset</span>
-<span class="k">print</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">------------------------------------------------------------------</span><span class="se">\n</span><span class="s">&#39;</span>
+<span class="k">print</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">---------------------------------------------------------</span><span class="se">\n</span><span class="s">&#39;</span>
 <span class="k">print</span> <span class="s">&#39;Information of our data:&#39;</span><span class="p">,</span> <span class="n">fullData</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-<span class="k">print</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">------------------------------------------------------------------</span><span class="se">\n</span><span class="s">&#39;</span>
+<span class="k">print</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">---------------------------------------------------------</span><span class="se">\n</span><span class="s">&#39;</span>
 </pre></div>
 
 </div>
@@ -1929,8 +1929,10 @@ In&nbsp;[75]:
 <div class="highlight"><pre><span class="c"># 1.5 First Visualization of the data</span>
 <span class="c"># Plot the distribution of the labels</span>
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">axis1</span><span class="p">,</span> <span class="n">axis2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;country_destination&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fullData</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axis1</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;country_destination&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">train</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axis2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;country_destination&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fullData</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> 
+              <span class="n">ax</span> <span class="o">=</span> <span class="n">axis1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;country_destination&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">train</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> 
+              <span class="n">ax</span> <span class="o">=</span> <span class="n">axis2</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2174,8 +2176,10 @@ In&nbsp;[76]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c"># 1.1 Drop unecessary columns, these columns won&#39;t be useful in analysis and prediction</span>
-<span class="n">fullData</span> <span class="o">=</span> <span class="n">fullData</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s">&#39;date_account_created&#39;</span><span class="p">,</span> <span class="s">&#39;timestamp_first_active&#39;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span class="c"># 1.1 Drop unecessary columns, these columns won&#39;t be useful in </span>
+<span class="c"># analysis and prediction</span>
+<span class="n">fullData</span> <span class="o">=</span> <span class="n">fullData</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s">&#39;date_account_created&#39;</span><span class="p">,</span> 
+                          <span class="s">&#39;timestamp_first_active&#39;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2190,8 +2194,10 @@ In&nbsp;[77]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c"># 1.2 Find out all categorical variables (choose those numerical variables, just change &#39;o&#39; to &#39;int64&#39;)</span>
-<span class="n">colType</span> <span class="o">=</span> <span class="n">fullData</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_series</span><span class="p">()</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">fullData</span><span class="o">.</span><span class="n">dtypes</span> <span class="o">==</span> <span class="s">&#39;O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span> 
+<div class="highlight"><pre><span class="c"># 1.2 Find out all categorical variables (choose those numerical </span>
+<span class="c"># variables, just change &#39;o&#39; to &#39;int64&#39;)</span>
+<span class="n">columnSeries</span> <span class="o">=</span> <span class="n">fullData</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_series</span><span class="p">()</span>
+<span class="n">colType</span> <span class="o">=</span> <span class="n">columnSeries</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">fullData</span><span class="o">.</span><span class="n">dtypes</span> <span class="o">==</span> <span class="s">&#39;O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span> 
 <span class="n">colType</span><span class="p">[</span><span class="bp">True</span><span class="p">]</span>
 </pre></div>
 
@@ -2242,19 +2248,21 @@ In&nbsp;[78]:
     <span class="n">count_col</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">columnName</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()))</span>
     <span class="n">count_nan</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">columnName</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
     <span class="n">range_col</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">columnName</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span>
-    <span class="k">print</span> <span class="s">&quot;There are </span><span class="si">%s</span><span class="s"> different values in the list of :</span><span class="se">\n</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">range_col</span><span class="p">),</span> <span class="n">range_col</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;There are </span><span class="si">%s</span><span class="s"> different values in the list of :</span><span class="se">\n</span><span class="si">%s</span><span class="s">&quot;</span> 
+                                <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">range_col</span><span class="p">),</span> <span class="n">range_col</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">count_nan</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">count_col</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">count_nan</span><span class="p">)</span>
         
-        <span class="c"># Create a random selection of the 7 possible categorical values for all </span>
-        <span class="c"># &#39;count_ran_department&#39; (i.e., 6085) &#39;NaN&#39; records</span>
+        <span class="c"># Create a random selection of the 7 possible categorical </span>
+        <span class="c"># values for all &#39;count_ran_department&#39; &#39;NaN&#39; records</span>
         <span class="n">RandforNaN</span> <span class="o">=</span> <span class="n">range_col</span><span class="p">[</span><span class="n">rand</span><span class="p">]</span>
 
         <span class="c"># Find indexes for the NaN values</span>
         <span class="n">NaNIndex</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">columnName</span><span class="p">]</span> <span class="o">!=</span> <span class="n">df</span><span class="p">[</span><span class="n">columnName</span><span class="p">]</span>
         <span class="n">df</span><span class="p">[</span><span class="n">columnName</span><span class="p">][</span><span class="n">NaNIndex</span><span class="p">]</span> <span class="o">=</span> <span class="n">RandforNaN</span>
-        <span class="k">print</span> <span class="s">&#39;There are : </span><span class="si">%s</span><span class="s"> NaN values in this variable!&#39;</span> <span class="o">%</span> <span class="n">count_nan</span>
+        <span class="k">print</span> <span class="s">&#39;There are : </span><span class="si">%s</span><span class="s"> NaN values in this variable!&#39;</span> 
+                                                <span class="o">%</span> <span class="n">count_nan</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">print</span> <span class="s">&#39;There is no NaN values for this variable!&#39;</span>
     <span class="k">return</span> <span class="n">df</span>
@@ -2276,13 +2284,15 @@ In&nbsp;[79]:
 <span class="c"># 1. &#39;affiliate_channel&#39; variable</span>
 <span class="c"># (1) Visualization</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axis1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;affiliate_channel&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fullData</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axis1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;affiliate_channel&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fullData</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> 
+              <span class="n">ax</span><span class="o">=</span><span class="n">axis1</span><span class="p">)</span>
 
 <span class="c"># (2) Fill NaN values randomly</span>
 <span class="n">fullData</span> <span class="o">=</span> <span class="n">FillNaNRandom</span><span class="p">(</span><span class="n">fullData</span><span class="p">,</span> <span class="s">&#39;affiliate_channel&#39;</span><span class="p">)</span>
 
 <span class="c"># (3) Binary process</span>
-<span class="n">fullData</span><span class="p">[</span><span class="s">&quot;affiliate_channel&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">fullData</span><span class="p">[</span><span class="s">&quot;affiliate_channel&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;direct&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">fullData</span><span class="p">[</span><span class="s">&quot;affiliate_channel&quot;</span><span class="p">]</span> <span class="o">=</span> 
+<span class="p">(</span><span class="n">fullData</span><span class="p">[</span><span class="s">&quot;affiliate_channel&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;direct&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2475,13 +2485,15 @@ In&nbsp;[80]:
 <span class="c"># 2. &#39;affiliate_provider&#39; variable</span>
 <span class="c"># (1) Visualization</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axis1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;affiliate_provider&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fullData</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axis1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;affiliate_provider&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fullData</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> 
+              <span class="n">ax</span><span class="o">=</span><span class="n">axis1</span><span class="p">)</span>
 
 <span class="c"># (2) Fill NaN values randomly</span>
 <span class="n">fullData</span> <span class="o">=</span> <span class="n">FillNaNRandom</span><span class="p">(</span><span class="n">fullData</span><span class="p">,</span> <span class="s">&#39;affiliate_provider&#39;</span><span class="p">)</span>
 
 <span class="c"># (3) Binary process</span>
-<span class="n">fullData</span><span class="p">[</span><span class="s">&quot;affiliate_provider&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">fullData</span><span class="p">[</span><span class="s">&quot;affiliate_provider&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;direct&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">fullData</span><span class="p">[</span><span class="s">&quot;affiliate_provider&quot;</span><span class="p">]</span> <span class="o">=</span> 
+<span class="p">(</span><span class="n">fullData</span><span class="p">[</span><span class="s">&quot;affiliate_provider&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;direct&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2725,10 +2737,12 @@ In&nbsp;[81]:
 <span class="c"># 3. &#39;country_destination&#39; variable</span>
 <span class="c"># (1) Visualization</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axis1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;country_destination&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fullData</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axis1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;country_destination&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fullData</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> 
+              <span class="n">ax</span><span class="o">=</span><span class="n">axis1</span><span class="p">)</span>
 
 <span class="c"># (2) Binary process</span>
-<span class="n">fullData</span><span class="p">[</span><span class="s">&quot;booked&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">fullData</span><span class="p">[</span><span class="s">&#39;country_destination&#39;</span><span class="p">]</span><span class="o">!=</span> <span class="s">&#39;NDF&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">fullData</span><span class="p">[</span><span class="s">&quot;booked&quot;</span><span class="p">]</span> <span class="o">=</span> 
+<span class="p">(</span><span class="n">fullData</span><span class="p">[</span><span class="s">&#39;country_destination&#39;</span><span class="p">]</span><span class="o">!=</span> <span class="s">&#39;NDF&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2929,7 +2943,8 @@ In&nbsp;[30]:
 <span class="c"># 4. &#39;date_first_booking&#39; variable</span>
 <span class="c"># (1) Visualization</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axis1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;date_first_booking&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fullData</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axis1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;date_first_booking&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fullData</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> 
+              <span class="n">ax</span><span class="o">=</span><span class="n">axis1</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -3432,14 +3447,15 @@ In&nbsp;[82]:
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="c"># Type : Date</span>
-<span class="c"># (2) Split a &#39;date&#39; variable into 2 variables, i.e., &#39;year&#39; and &#39;month&#39;</span>
+<span class="c"># (2) Split a &#39;date&#39; variable into &#39;year&#39; and &#39;month&#39;</span>
 <span class="k">def</span> <span class="nf">get_year</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">date</span> <span class="o">==</span> <span class="n">date</span><span class="p">:</span> <span class="c"># if the value is nan, nan is not equal to another nan</span>
+    <span class="c"># if the value is nan, nan is not equal to another nan</span>
+    <span class="k">if</span> <span class="n">date</span> <span class="o">==</span> <span class="n">date</span><span class="p">:</span> 
         <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">date</span><span class="p">)[:</span><span class="mi">4</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">date</span>
 
 <span class="k">def</span> <span class="nf">get_month</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">date</span> <span class="o">==</span> <span class="n">date</span><span class="p">:</span> <span class="c"># if the value is nan, nan is not equal to another nan</span>
+    <span class="k">if</span> <span class="n">date</span> <span class="o">==</span> <span class="n">date</span><span class="p">:</span> 
         <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">date</span><span class="p">)[</span><span class="mi">5</span><span class="p">:</span><span class="mi">7</span><span class="p">]))</span>
     <span class="k">return</span> <span class="n">date</span>
 
@@ -3474,7 +3490,8 @@ In&nbsp;[83]:
 <span class="c"># NOTICE : in year 2014 and 2015, there wasn&#39;t &quot;no-booking&quot;</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axis1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&quot;Year&quot;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s">&quot;country_destination&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fullData</span><span class="p">,</span> 
-              <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="mi">2010</span><span class="p">,</span><span class="mi">2011</span><span class="p">,</span><span class="mi">2012</span><span class="p">,</span><span class="mi">2013</span><span class="p">,</span><span class="mi">2014</span><span class="p">,</span><span class="mi">2015</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axis1</span><span class="p">)</span>
+              <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="mi">2010</span><span class="p">,</span><span class="mi">2011</span><span class="p">,</span><span class="mi">2012</span><span class="p">,</span><span class="mi">2013</span><span class="p">,</span><span class="mi">2014</span><span class="p">,</span><span class="mi">2015</span><span class="p">],</span> 
+              <span class="n">ax</span><span class="o">=</span><span class="n">axis1</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -3763,7 +3780,8 @@ In&nbsp;[84]:
 <span class="c"># 5. &#39;first_affiliate_tracked&#39; variable</span>
 <span class="c"># (1) Visualization</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axis1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;first_affiliate_tracked&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fullData</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axis1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;first_affiliate_tracked&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fullData</span><span class="p">,</span> 
+              <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axis1</span><span class="p">)</span>
 
 <span class="c"># (2) Fill NaN values randomly</span>
 <span class="n">fullData</span> <span class="o">=</span> <span class="n">FillNaNRandom</span><span class="p">(</span><span class="n">fullData</span><span class="p">,</span> <span class="s">&#39;first_affiliate_tracked&#39;</span><span class="p">)</span>
@@ -3997,7 +4015,8 @@ In&nbsp;[85]:
 <span class="c"># 6. &#39;first_browser&#39; variable</span>
 <span class="c"># (1) Visualization</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axis1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;first_browser&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fullData</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axis1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;first_browser&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fullData</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> 
+              <span class="n">ax</span><span class="o">=</span><span class="n">axis1</span><span class="p">)</span>
 
 <span class="c"># (2) Fill NaN values randomly</span>
 <span class="n">fullData</span> <span class="o">=</span> <span class="n">FillNaNRandom</span><span class="p">(</span><span class="n">fullData</span><span class="p">,</span> <span class="s">&#39;first_browser&#39;</span><span class="p">)</span>
@@ -4359,7 +4378,8 @@ In&nbsp;[86]:
 <span class="c"># 7. &#39;first_device_type&#39; variable</span>
 <span class="c"># (1) Visualization</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axis1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;first_device_type&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fullData</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axis1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&#39;first_device_type&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fullData</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> 
+              <span class="n">ax</span><span class="o">=</span><span class="n">axis1</span><span class="p">)</span>
 
 <span class="c"># (2) Fill NaN values randomly</span>
 <span class="n">fullData</span> <span class="o">=</span> <span class="n">FillNaNRandom</span><span class="p">(</span><span class="n">fullData</span><span class="p">,</span> <span class="s">&#39;first_device_type&#39;</span><span class="p">)</span>
@@ -4803,7 +4823,8 @@ In&nbsp;[88]:
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">axis1</span><span class="p">,</span> <span class="n">axis2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 <span class="c"># frequency of country_destination for every gender</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&quot;gender&quot;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s">&quot;country_destination&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span>
-              <span class="n">fullData</span><span class="p">[</span><span class="n">fullData</span><span class="p">[</span><span class="s">&#39;country_destination&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s">&#39;NDF&#39;</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axis1</span><span class="p">)</span>
+              <span class="n">fullData</span><span class="p">[</span><span class="n">fullData</span><span class="p">[</span><span class="s">&#39;country_destination&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s">&#39;NDF&#39;</span><span class="p">],</span> 
+              <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axis1</span><span class="p">)</span>
 <span class="c"># frequency of booked Vs no-booking users for every gender</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&quot;gender&quot;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s">&quot;booked&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fullData</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axis2</span><span class="p">)</span>
 </pre></div>
@@ -5466,7 +5487,8 @@ In&nbsp;[91]:
 <span class="n">fullData</span> <span class="o">=</span> <span class="n">FillNaNRandom</span><span class="p">(</span><span class="n">fullData</span><span class="p">,</span> <span class="s">&#39;signup_flow&#39;</span><span class="p">)</span>
 
 <span class="c"># (3) Binary process</span>
-<span class="n">fullData</span><span class="p">[</span><span class="s">&quot;signup_method&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">fullData</span><span class="p">[</span><span class="s">&quot;signup_method&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&quot;basic&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">fullData</span><span class="p">[</span><span class="s">&quot;signup_method&quot;</span><span class="p">]</span> <span class="o">=</span> 
+                  <span class="p">(</span><span class="n">fullData</span><span class="p">[</span><span class="s">&quot;signup_method&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&quot;basic&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">fullData</span><span class="p">[</span><span class="s">&quot;signup_flow&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">fullData</span><span class="p">[</span><span class="s">&quot;signup_flow&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 </pre></div>
 
@@ -5719,8 +5741,8 @@ In&nbsp;[94]:
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="c"># 1.4 Particular process of numerical variable &#39;age&#39;</span>
-<span class="c"># 1.4.1 Find and remove outliers by assigning all age values &gt; 100 to NaN, </span>
-<span class="c"># these NaN values will be replaced with real ages below</span>
+<span class="c"># 1.4.1 Find and remove outliers by assigning all age values &gt; 100 </span>
+<span class="c"># to NaN, these NaN values will be replaced with real ages below</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">fullData</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">values</span>
 <span class="n">fullData</span><span class="p">[</span><span class="s">&#39;age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span><span class="mi">100</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 
@@ -5731,7 +5753,8 @@ In&nbsp;[94]:
 <span class="k">print</span> <span class="n">count_nan_age</span>
 
 <span class="c"># generate random numbers between (mean - std) &amp; (mean + std)</span>
-<span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">average_age</span> <span class="o">-</span> <span class="n">std_age</span><span class="p">,</span> <span class="n">average_age</span> <span class="o">+</span> <span class="n">std_age</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">count_nan_age</span><span class="p">)</span>
+<span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">average_age</span> <span class="o">-</span> <span class="n">std_age</span><span class="p">,</span> <span class="n">average_age</span> <span class="o">+</span> <span class="n">std_age</span><span class="p">,</span>
+                         <span class="n">size</span> <span class="o">=</span> <span class="n">count_nan_age</span><span class="p">)</span>
 
 <span class="c"># fill NaN values in Age column with random values generated</span>
 <span class="n">fullData</span><span class="p">[</span><span class="s">&quot;age&quot;</span><span class="p">][</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">fullData</span><span class="o">.</span><span class="n">age</span><span class="p">)]</span> <span class="o">=</span> <span class="n">rand</span>
@@ -5779,8 +5802,8 @@ In&nbsp;[96]:
 
 <span class="c"># frequency of country_destination for every age range</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&quot;age_range&quot;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s">&quot;country_destination&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span>
-              <span class="n">fullData</span><span class="p">[</span><span class="n">fullData</span><span class="o">.</span><span class="n">country_destination</span> <span class="o">!=</span> <span class="s">&#39;NDF&#39;</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> 
-              <span class="n">ax</span><span class="o">=</span><span class="n">axis2</span><span class="p">)</span>
+              <span class="n">fullData</span><span class="p">[</span><span class="n">fullData</span><span class="o">.</span><span class="n">country_destination</span> <span class="o">!=</span> <span class="s">&#39;NDF&#39;</span><span class="p">],</span> 
+                                      <span class="n">palette</span><span class="o">=</span><span class="s">&quot;husl&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axis2</span><span class="p">)</span>
 
 <span class="c"># drop age_range</span>
 <span class="n">fullData</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s">&#39;age_range&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
@@ -6308,7 +6331,8 @@ In&nbsp;[100]:
 <span class="n">range_countries</span> <span class="o">=</span> <span class="n">fullData</span><span class="o">.</span><span class="n">country_destination</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span>
 
 <span class="c"># Get the dictionary of the target column</span>
-<span class="n">country_num_dic</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">range_countries</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">range_countries</span><span class="p">))))</span>
+<span class="n">country_num_dic</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">range_countries</span><span class="p">,</span>
+                           <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">range_countries</span><span class="p">))))</span>
 </pre></div>
 
 </div>
