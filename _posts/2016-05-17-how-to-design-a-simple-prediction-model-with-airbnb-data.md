@@ -1,15 +1,13 @@
 ---
 layout: post
-title: "A tutorial on how to design a simple prediction model"
+title: "How to design a simple prediction model with Airbnb data"
 description: ""
-category: "Python"
+category: 
 tags: []
 ---
 {% include JB/setup %}
 
 
-
- 
 <head>
 
 <meta charset="utf-8" />
