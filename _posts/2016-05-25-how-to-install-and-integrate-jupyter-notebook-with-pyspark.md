@@ -284,30 +284,6 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#from IPython.core.display import display, HTML</span>
-<span class="c1">#display(HTML(&quot;&lt;style&gt;.container { width:700px !important; }&lt;/style&gt;&quot;</span>
-<span class="c1">#))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Recently,-I-have-been-playing-with-Kaggle's-data-competition.-I-notice-that-the-time-taken-to-run-the-L1-SVM-classification-increases-from-40-minutes-to-2-hours-just-by-scaling-up-the-training-set-by-10-times.-This-indicates-a-strong-need-to-use-a-more-time-efficient-development-environment-for-machine-learning.-And,-Apache-Spark-comes-into-my-sight.">Recently, I have been playing with Kaggle's data competition. I notice that the time taken to run the L1-SVM classification increases from 40 minutes to 2 hours just by scaling up the training set by 10 times. This indicates a strong need to use a more time-efficient development environment for machine learning. And, Apache Spark comes into my sight.<a class="anchor-link" href="#Recently,-I-have-been-playing-with-Kaggle's-data-competition.-I-notice-that-the-time-taken-to-run-the-L1-SVM-classification-increases-from-40-minutes-to-2-hours-just-by-scaling-up-the-training-set-by-10-times.-This-indicates-a-strong-need-to-use-a-more-time-efficient-development-environment-for-machine-learning.-And,-Apache-Spark-comes-into-my-sight.">&#182;</a></h3>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
